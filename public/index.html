@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="index" ng-controller="indexController">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Felipe C F</title>
+
+  <!-- CSS  -->
+  <link rel='icon' type='image/png' href='images/favicon.png' />
+  <link rel="stylesheet" href="css/fonts/material-icons/material-icons.css">
+  <link href="css/util/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="bower_components/angular-timeline/dist/angular-timeline.css"/>
+</head>
+<body ng-controller="indexController">
+  <!-- <nav class="color-my-icon">
+      <ul id="slide-out" class="side-nav fixed">
+          <li><div class="user-view" ng-click="redirectToLinkedin()">
+            <a class="background indigo darken-3" >
+              <img src="images/background.jpg" height="100%" width="100%">
+            </a>
+            <a><img class="circle" src="images/me.jpg" height="100px" width="100px"></a>
+            <a><span class="name white-text">Felipe Custódio Firmino</span></a>
+            <a><span class="email white-text">felipe.custodio_f@hotmail.com</span></a>
+          </div></li>
+          <li><a class=" waves-effect"><i class="material-icons">info</i>Sobre</a></li>
+          <li><a class=" waves-effect"><i class="material-icons">my_location</i>Objetivos</a></li>
+          <li><a class=" waves-effect"><i class="material-icons">work</i>Qualificações</a></li>
+          <li><a class=" waves-effect"><i class="material-icons">timeline</i>Experiências</a></li>
+          <li><a class=" waves-effect"><i class="material-icons">person_pin</i>Curiosidades</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class=" subheader">Redes sociais</a></li>
+          <li><a class=" waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+      <a data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>  
+  </nav> -->
+  <main ng-view>
+       
+  </main>
+  <footer class="page-footer indigo darken-3">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2017 Copyright Felipe C F
+      </div>
+    </div>
+  </footer>
+  <!--  Scripts-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-cookies.js"></script>
+  <script src="js/angular-route.min.js"></script>
+  <script src="bower_components/angular-timeline/dist/angular-timeline.js"></script>
+  <!-- controllers -->
+  <script src="controllers/index.js"></script>
+  <script src="controllers/home.js"></script>
+  </body>
+</html>
