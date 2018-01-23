@@ -1,27 +1,30 @@
 <?php
+	session_start();
 
-	require_once('db.class.php');
+	require_once("db.class.php");
 
-	$usuario = $_POST['email'];
-	$senha = $_POST['senha'];
+	$email = $_POST['email'];
+	$senha = md5($_POST['senha']);
 
-	$sql = " SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha' ";
+	$sql = "SELECT email, senha FROM usuarios WHERE email = '$email' AND senha = '$senha'";
 
-	$objDb = new db(); //recebe o db
-	$link = $objDb->conecta_mysql(); // função de conexão bd
+	$objDb = new db();
+	$link = $objDb->conecta_mysql();
 
-	$resultado_id = mysqli_query($link, $sql);
+	$res = mysqli_query($link, $sql);
 
-	if($resultado_id){
-		$dados_usuario = mysqli_fetch_array($resultado_id);
+	
+	if ($res){
+		$dados_usuario = mysqli_fetch_array($res);
+		if(isset($dados_usuario['email'])) {
+			$_SESSION['email'] = $dados_usuario['email'];
+			$_SESSION['senha'] = $dados_usuario['senha'];
 
-		if(issets($dados_usuario['usuario'])){
-			echo 'Usuário existe';
-		}else{
-			header('location: index.html?erro=1');
+			header("location: index.html?acerto=1");
+		} else {
+			header("location: index.html?erro=1");
 		}
-	}else{
-		echo 'Erro na execução da consulta, favor entrar em contato com o admin do site!'
+	} else {
+		echo 'Erro na execução da consulta, favor entrar em contato com o admin do site!';
 	}
-
 ?>

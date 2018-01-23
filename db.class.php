@@ -14,11 +14,11 @@
 			$con = mysqli_connect($this->host, $this->usuario, $this->senha, $this->database);
 
 			// ajustar o charset
-			mysqli_charset ($con, 'utf8');
+			mysqli_set_charset($con, 'utf8');
 
 			// verificar erros
 			if(mysqli_connect_errno()){
-				echo 'Erro ao se conectar com o banco de dados: '+mysql_connect_error();
+				echo 'Erro ao se conectar com o banco de dados: '.mysql_connect_error();
 			}
 
 			return $con;
