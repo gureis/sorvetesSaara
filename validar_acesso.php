@@ -13,13 +13,10 @@
 
 	$res = mysqli_query($link, $sql);
 
-	
 	if ($res){
 		$dados_usuario = mysqli_fetch_array($res);
 		if(isset($dados_usuario['email'])) {
 			$_SESSION['email'] = $dados_usuario['email'];
-			$_SESSION['senha'] = $dados_usuario['senha'];
-
 			header("location: index.html?acerto=1");
 		} else {
 			header("location: index.html?erro=1");
