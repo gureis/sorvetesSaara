@@ -2,6 +2,12 @@
 
 	session_start();
 
+	session_start();
+
+	if(!isset($_SESSION['email'])) {
+		header("Location: index.html?erro=3");
+	} 
+
 	require_once('db.class.php');
 
 	$nome = $_POST['nome'];
