@@ -1,0 +1,11 @@
+como executar o site
+
+instalar o node js versao recomendada
+
+https://nodejs.org/en/ 
+
+instalar o http-server
+
+https://www.npmjs.com/package/http-server
+
+ir na pasta do site pelo terminal/cmd e executar o http server
