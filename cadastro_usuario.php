@@ -10,7 +10,7 @@
 	$email = $_POST['email'];
 	$senha = md5($_POST['senha']);
 	$telefone = $_POST['telefone'];
-	$nascimento = $_POST['nascimento'];
+	$nascimento =$_POST['nascimento'];
 	$endereco = $_POST['endereco'];
 	$cidade = $_POST['cidade'];
 	$cep = $_POST['cep'];
@@ -65,7 +65,11 @@
 		header("Location: index.html?".$return_get);
 	}
 
-	$sql = "INSERT INTO usuarios(nome, sobrenome, sexo, cpf, rg, email, senha, telefone, nascimento, endereco, cidade, cep, estado) VALUES ('$nome', '$sobrenome', '$sexo', '$cpf', '$rg', '$email', '$senha', '$telefone', '$nascimento', '$endereco', '$cidade', '$cep', '$estado')";
+	$data = new DateTime($nascimento);
+	$nascimento = date_format($data, 'Y-m-d');
+
+	$sql = "INSERT INTO usuarios(nome, sobrenome, sexo, cpf, rg, email, senha, telefone, nascimento, endereco, cidade, cep, estado) 
+			VALUES ('$nome', '$sobrenome', '$sexo', '$cpf', '$rg', '$email', '$senha', '$telefone', '$nascimento', '$endereco', '$cidade', '$cep', '$estado')";
 
 	//Exec query
 	if (mysqli_query($link, $sql)){
