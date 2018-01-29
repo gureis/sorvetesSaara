@@ -4,7 +4,7 @@
 	if(!isset($_SESSION['email'])) {
 		header("Location: index.html?erro=3");
 	}
-	
+
 	require_once('db.class.php');
 
 	$email = $_SESSION['email'];
@@ -12,11 +12,10 @@
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
-	$sql = "SELECT nome, sobrenome, sexo, cpf, rg, email, telefone, nascimento, endereco, cidade, cep, estado FROM usuarios 
-	WHERE email = '$email'";
+	$sql = "SELECT nome, sobrenome, sexo, cpf, rg, email, telefone, nascimento, endereco, cidade, cep, estado FROM usuarios	WHERE email = '$email'";
 
 	$res = mysqli_query($link, $sql);
-	
+
 	if($res) {
 		$user_data = mysqli_fetch_array($res);
 		echo "<p>".$user_data['nome']."</p>";

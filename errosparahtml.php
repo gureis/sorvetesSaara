@@ -32,5 +32,4 @@
 			if(campo_vazio) return false;
 			});
 		});
-	});
 </script>
