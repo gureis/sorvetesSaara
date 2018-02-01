@@ -3,7 +3,12 @@ angular.module('$helper', [])
 .service('$helper', ['$http','$q', function($http, $q){
 
 	var from = null;
-	var usuario = {};
+	var usuario = {
+		logado:false,
+		login:'',
+		nome:'',
+		senha:''
+	};
 
 	this.setFrom = function(from_param){
 		from = from_param;
@@ -16,7 +21,10 @@ angular.module('$helper', [])
 		return usuario;
 	}
 	this.setUsuario = function(usuario_param){
-		usuario = usuario_param;
+		usuario.logado = true;
+		usuario.nome = usuario_param.nome;
+		usuario.senha = usuario_param.senha;
+		usuario.login = usuario_param.login;
 	}
 
 }])

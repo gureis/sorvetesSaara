@@ -25,7 +25,7 @@
 			];
 			echo json_encode($user);
 		} else {
-			echo "erro";
+			echo "Dados incorretos";
 		}
 	} else {
 		echo 'Erro na execução da consulta, favor entrar em contato com o admin do site!';

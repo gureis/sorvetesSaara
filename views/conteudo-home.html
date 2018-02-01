@@ -27,11 +27,11 @@
         <li><a class="text-50 scrollSuave" href="#organizadores">Organizadores</a></li>
         <li><a class="text-50 scrollSuave" href="#patrocinadores">Patrocinadores</a></li>
         <li><a class="text-50 scrollSuave" href="#localizacao">Local</a></li>
-        <li class="pink accent-3"><a class="text-50 " ng-click="inscrever()">Inscrever-se</a></li>
-        <li class="brown"><a class="text-50 modal-trigger" data-target="ModalLogin">Login</a></li>
-        <li><a class="dropdown-button" data-activates="dropdown1">Usuario<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li class="pink accent-3"><a class="text-50 " ng-show="usuarioLogado.logado" ng-click="inscrever()">Alterar dados</a></li>
+        <li class="pink accent-3"><a class="text-50 " ng-show="!usuarioLogado.logado" ng-click="inscrever()">Inscrever-se</a></li>
+        <li class="brown"><a class="text-50 modal-trigger" ng-show="!usuarioLogado.logado" data-target="ModalLogin">Login</a></li>
+        <li class="brown"><a class="dropdown-button" ng-show="usuarioLogado.logado" data-activates="dropdown1">{{usuarioLogado.nome}}<i class="material-icons right">arrow_drop_down</i></a></li>
         <ul id='dropdown1' class='dropdown-content'>
-            <li><a>Alterar dados</a></li>
             <li><a>Sair</a></li>
         </ul>
     </ul>

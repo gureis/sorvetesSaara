@@ -59,26 +59,18 @@ angular.module('inscrever',[])
                         if($scope.usuario.sexo !== ""){
                             if($('.datepicker').val() !== ""){
                                 $scope.usuario.nascimento = $('.datepicker').val();
-                                //  var usuario = {
-                                //     nome: $scope.usuario.nome,
-                                //     sobrenome: $scope.usuario.sobrenome,
-                                //     email: $scope.usuario.email,
-                                //     sexo: $scope.usuario.sexo,
-                                //     senha: $scope.usuario.senha,
-                                //     cpf: $scope.usuario.cpf,
-                                //     rg: $scope.usuario.rg,
-                                //     cidade: $scope.usuario.cidade,
-                                //     cep: $scope.usuario.cep,
-                                //     estado: $scope.usuario.estado,
-                                //     nascimento: $scope.usuario.nascimento
-                                // };
-                                // usuario.senha = md5.createHash($scope.usuario.senha); 
                                 $request.cadastrar($scope.usuario)
                                     .then(function(response) {
                                         console.log(response);
                                         if(response.status === "ok") {
                                             $location.path('/');
                                             Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
+                                            var user = {
+                                                login: response.login,
+                                                senha: response.senha,
+                                                nome: $scope.usuario.nome
+                                            };
+                                            $helper.setUsuario(user);
                                         }else{
                                             Materialize.toast(response.status, 4000, 'red');
                                         }

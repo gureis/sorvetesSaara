@@ -15,17 +15,20 @@ angular.module('login',[])
         $('.button-collapse').sideNav('hide');
         $location.path('/');
     };
-    
+   
+
     $scope.usuario = {
         login:'',
         senha:''
     };
+
     $scope.doLogin = function(){
        // $scope.usuario.senha = md5.createHash($scope.usuario.senha);
         $request.login($scope.usuario)
             .then(function(response) {
-                console.log(response);
                 $('#ModalLogin').modal('close');
+                $scope.usuario.nome = response.nome;
+                $helper.setUsuario($scope.usuario);
             }, function(error) {
                 console.log("erro de requisicao", error);
             }

@@ -11,15 +11,14 @@ angular.module('home',[])
     // alert("to na home");
     $scope.inscrever = function(path){
    		$location.path('/inscrever');
-   		console.log("home");
     };
     $scope.editarPerfil = function(){
     	$location.path('/editarPerfil');
     };
     $scope.pageLoginMob = function(){
-        console.log("chamou");
         $location.path('/login-mobile');
     };
+    $scope.usuarioLogado = $helper.getUsuario();
     var $doc = $('html, body');
     $('.scrollSuave').click(function() {
         $doc.animate({
