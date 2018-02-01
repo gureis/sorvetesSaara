@@ -23,7 +23,7 @@
 			"endereco" => $user['endereco'],
 			"cidade" => $user['cidade'],
 			"cep" => $user['cep'],
-			"estado" => $user['estado']
+			"estado" => $user['estado'],
 			"sexo" => $user['sexo'],
 			"email" => $user['email'],
 			"nascimento" => $user['nascimento'],

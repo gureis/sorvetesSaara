@@ -23,10 +23,4 @@ angular.module('conteudo-home',[])
     });
     // alert("to na home");
 
-    $scope.editarPerfil = function(){
-    	$location.path('/editarPerfil');
-    };
-
-
-
 })

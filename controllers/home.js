@@ -12,8 +12,8 @@ angular.module('home',[])
     $scope.inscrever = function(path){
    		$location.path('/inscrever');
     };
-    $scope.editarPerfil = function(){
-    	$location.path('/editarPerfil');
+    $scope.sair = function(){
+    	$helper.sairUsuario();
     };
     $scope.pageLoginMob = function(){
         $location.path('/login-mobile');

@@ -32,7 +32,7 @@
         <li class="brown"><a class="text-50 modal-trigger" ng-show="!usuarioLogado.logado" data-target="ModalLogin">Login</a></li>
         <li class="brown"><a class="dropdown-button" ng-show="usuarioLogado.logado" data-activates="dropdown1">{{usuarioLogado.nome}}<i class="material-icons right">arrow_drop_down</i></a></li>
         <ul id='dropdown1' class='dropdown-content'>
-            <li><a>Sair</a></li>
+            <li><a ng-click="sair()">Sair</a></li>
         </ul>
     </ul>
     <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>

@@ -86,7 +86,6 @@ angular.module('$request', [])
 		return $http({
 			method: "post",
 			url: 'http://localhost/saarice/php/get_perfil.php',
-			data:usuario,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		})
 		.then(function(response) {

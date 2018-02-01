@@ -10,6 +10,12 @@ angular.module('$helper', [])
 		senha:''
 	};
 
+	this.sairUsuario = function(){
+		usuario.logado = false;
+		usuario.login = '';
+		usuario.nome = '';
+		usuario.senha = '';
+	}
 	this.setFrom = function(from_param){
 		from = from_param;
 	}
