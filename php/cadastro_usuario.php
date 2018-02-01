@@ -22,7 +22,7 @@
 	$objDb = new db(); //recebe o db
 	$link = $objDb->conecta_mysql(); // função de conexão bd
 
-	/*$email_existe = false;
+	$email_existe = false;
 	$cpf_existe = false;
 	$rg_existe = false;
 
@@ -58,16 +58,14 @@
 		$return_get = '';
 
 		if($email_existe)
-			$return_get .= "err_email=1&";
+			$return_get .= "Email existente ";
 
 		if($cpf_existe)
-			$return_get .= "err_cpf=1&";
+			$return_get .= "CPF existente ";
 
 		if($rg_existe)
-			$return_get .= "err_rg=1";
-
-		header("Location: index.html?".$return_get);
-	}*/
+			$return_get .= "RG existente ";
+	}
 
 	$nascimento= date('y/m/d', strtotime($nascimento));
 
@@ -76,11 +74,15 @@
 	//Exec query
 	if (mysqli_query($link, $sql)){
 		$user = [
-			"email" => $email,
+			"status" => "ok",
+			"login" => $email,
 			"senha" => $senha
 		];
 		echo json_encode($user);
 	}else{
-		echo "erro";
+		$erro = [
+			"status" => $return_get
+		];
+		echo json_encode($erro);
 	}
  ?>

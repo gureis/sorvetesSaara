@@ -75,12 +75,12 @@ angular.module('inscrever',[])
                                 // usuario.senha = md5.createHash($scope.usuario.senha); 
                                 $request.cadastrar($scope.usuario)
                                     .then(function(response) {
-                                        console.log(response)
-                                        if(response === "ok") {
+                                        console.log(response);
+                                        if(response.status === "ok") {
                                             $location.path('/');
                                             Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
                                         }else{
-                                            Materialize.toast('Falha ao cadastrar', 4000, 'red');
+                                            Materialize.toast(response.status, 4000, 'red');
                                         }
                                     }, function(error) {
                                         console.log("erro de requisicao", error);

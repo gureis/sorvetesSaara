@@ -66,7 +66,12 @@ angular.module('$request', [])
 
 	this.login = function(usuario){
 		console.log(usuario);
-		return $http.post('http://localhost/saarice/php/validar_acesso.php', usuario, config)
+		return $http({
+			method: "post",
+			url: 'http://localhost/saarice/php/validar_acesso.php',
+			data:usuario,
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+		})
 		.then(function(response) {
 			console.log(response);
 			//deu certo
