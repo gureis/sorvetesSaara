@@ -1,6 +1,6 @@
 angular.module('login',[])
 
-.controller('loginCtrl', function($scope, $request, $helper, $location, md5){
+.controller('loginCtrl', function($scope, $request, $helper, $location){
     $(document).ready(function(){
         $('.button-collapse').sideNav({
             menuWidth: 300, // Default is 300
@@ -21,7 +21,7 @@ angular.module('login',[])
         senha:''
     };
     $scope.doLogin = function(){
-        $scope.usuario.senha = md5.createHash($scope.usuario.senha);
+       // $scope.usuario.senha = md5.createHash($scope.usuario.senha);
         $request.login($scope.usuario)
             .then(function(response) {
                 console.log(response);

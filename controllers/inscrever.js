@@ -26,7 +26,9 @@ angular.module('inscrever',[])
         cidade: "",
         cep: "",
         estado: "",
-        nascimento: ""
+        nascimento: "",
+        telefone: '',
+        endereco: ''
     };
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
@@ -35,7 +37,7 @@ angular.module('inscrever',[])
         clear: 'Limpar',
         close: 'Ok',
         closeOnSelect: false, // Close upon selecting a date,
-        format: 'mm/d/yyyy',
+        format: 'yyyy-mm-dd',
       });
 
     $scope.getIndexEstado = function(){
@@ -73,7 +75,13 @@ angular.module('inscrever',[])
                                 // usuario.senha = md5.createHash($scope.usuario.senha); 
                                 $request.cadastrar($scope.usuario)
                                     .then(function(response) {
-                                        console.log(response);
+                                        console.log(response)
+                                        if(response === "ok") {
+                                            $location.path('/');
+                                            Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
+                                        }else{
+                                            Materialize.toast('Falha ao cadastrar', 4000, 'red');
+                                        }
                                     }, function(error) {
                                         console.log("erro de requisicao", error);
                                     }

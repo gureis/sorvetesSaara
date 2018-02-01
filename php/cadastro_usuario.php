@@ -17,6 +17,7 @@
 	$cidade = $request->cidade;
 	$cep = $request->cep;
 	$estado = $request->estado;
+	$telefone = $request->telefone;
 
 	$objDb = new db(); //recebe o db
 	$link = $objDb->conecta_mysql(); // função de conexão bd
@@ -68,14 +69,18 @@
 		header("Location: index.html?".$return_get);
 	}*/
 
+	$nascimento= date('y/m/d', strtotime($nascimento));
+
 	$sql = "INSERT INTO usuarios(nome, sobrenome, sexo, cpf, rg, email, senha, telefone, nascimento, endereco, cidade, cep, estado)	VALUES ('$nome', '$sobrenome', '$sexo', '$cpf', '$rg', '$email', '$senha', '$telefone', '$nascimento', '$endereco', '$cidade', '$cep', '$estado')";
 
 	//Exec query
 	if (mysqli_query($link, $sql)){
-		$status = 200;
-		echo json_encode($status);
+		$user = [
+			"email" => $email,
+			"senha" => $senha
+		];
+		echo json_encode($user);
 	}else{
-		$status = 500;
-		echo json_encode($status);
+		echo "erro";
 	}
  ?>

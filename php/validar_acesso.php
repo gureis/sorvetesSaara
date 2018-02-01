@@ -3,8 +3,11 @@
 
 	require_once("db.class.php");
 
-	$email = $_POST['email'];
-	$senha = md5($_POST['senha']);
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata);
+
+	$email = $request->email;
+	$senha = md5($request->senha);
 
 	$sql = "SELECT email, senha FROM usuarios WHERE email = '$email' AND senha = '$senha'";
 
@@ -16,10 +19,9 @@
 	if ($res){
 		$dados_usuario = mysqli_fetch_array($res);
 		if(isset($dados_usuario['email'])) {
-			$_SESSION['email'] = $dados_usuario['email'];
-			header("location: index.html?acerto=1");
+			echo json_encode($dados_usuario['email']);
 		} else {
-			header("location: index.html?erro=1");
+			echo "erro";
 		}
 	} else {
 		echo 'Erro na execução da consulta, favor entrar em contato com o admin do site!';
