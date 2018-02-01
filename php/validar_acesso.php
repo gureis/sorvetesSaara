@@ -20,12 +20,16 @@
 		$dados_usuario = mysqli_fetch_array($res);
 		if(isset($dados_usuario['email'])) {
 			$user = [
+				"status" => "Ok",
 				"login" => $dados_usuario['email'],
 				"nome" => $dados_usuario['nome']
 			];
 			echo json_encode($user);
 		} else {
-			echo "erro";
+			$user = [
+				"status" => "Dados incorretos"
+			];
+			echo json_encode($user);
 		}
 	} else {
 		echo 'Erro na execução da consulta, favor entrar em contato com o admin do site!';
