@@ -1,0 +1,110 @@
+<nav class="yellow darken-2 sticky" role="navigation">
+    <ul id="slide-out" class="side-nav">
+        <li><a class="text-50" ng-click="goToHome()">Início</a></li>
+    </ul>
+    <div class="container">
+        <ul class="left container hide-on-med-and-down">
+            <li><a class="text-50" ng-click="goToHome()">Início</a></li>
+        </ul>
+    </div>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+</nav>
+<div class="container margin-top-3">
+    <div class="row">
+        <div class="col s12 center">
+            <h4 class="texto-Aquatico">Cadastro</h4>
+            <h4 class="texto-Aquatico">Alterar dados</h4>
+        </div>
+    </div>
+    <div class="row">
+        <form name="cadastro" class="col s12">
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input id="nome" ng-model="usuario.nome" type="text" required>
+                    <label for="nome">Nome</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="sobrenome" ng-model="usuario.sobrenome" type="text" required>
+                    <label for="sobrenome">Sobrenome</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <select ng-model="usuario.sexo">
+                        <option ng-repeat="sexo in sexos" value="{{sexo.sigla}}">{{sexo.nome}}</option>
+                    </select>
+                    <label>Sexo</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col s12 m6 l6">
+                    <label for="data">Data de nascimento</label>
+                    <!-- <input  type="text" name="created" ng-model="usuario.nascimento" /> -->
+                    <input id="data" ng-model="usuario.nascimento" type="text" class="datepicker">
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <label for="rg">RG</label>
+                    <input ng-model="usuario.rg" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" id="rg" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <label for="cpf">CPF (somente os numeros)</label>
+                    <input ng-model="usuario.cpf" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="number" id="cpf" required>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col s12 m4 l4">
+                    <label for="estado">Estado</label>
+                    <select id="estado" ng-model="usuario.estado" ng-change="getIndexEstado()" material-select watch>
+                        <option ng-repeat="estado in estados">{{estado.sigla}}</option>
+                    </select>
+                </div>
+                <div class="col s12 m4 l4">
+                    <label for="cidade">Cidade</label>
+                    <select ng-disabled="usuario.estado == ''" id="cidade" ng-model="usuario.cidade" material-select watch>
+                        <option ng-repeat="cidade in cidades">{{cidade}}</option>
+                    </select>
+                </div>
+                <div class="col s12 m4 l4">
+                    <label for="cep">CEP</label>
+                    <input ng-model="usuario.cep" type="number" id="cep" required>
+                </div>
+                <div class="col s12 m4 l4">
+                    <label for="endereco">Endereço</label>
+                    <input ng-model="usuario.endereco" type="text" id="endereco" required>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input ng-model="usuario.email" id="email" type="email" class="validate" required>
+                    <label for="email">E-mail</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input ng-model="usuario.telefone" id="telefone" type="number" required>
+                    <label for="telefone">Telefone</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input id="senha" ng-model="usuario.senha" type="password" required>
+                    <label for="senha">Senha</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="confirmarSenha" ng-model="confirmarSenha" type="password" required>
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center">
+                    <button ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Cadastrar</button>
+                    <button ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Alterar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

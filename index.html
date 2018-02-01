@@ -1,125 +1,65 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Saara Ice</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Cadastro</title>
+    <!-- CSS  -->
+    <link rel="shortcut icon" type="image/png" href="./../img/favicon.png"/>
+    <link rel="stylesheet" href="css/fonts/material-icons/material-icons.css">
+    <link href="css/util/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/util/desert.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/util/normalize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   </head>
-  <body>
-  	<div class="container">
-  		<div class="row">
-			<div class="col">
-				<form method="post" action="cadastro_usuario.php" id="cadastro">
-					<div class="form-group">
-						<label for="nome">Nome</label>
-						<input class="form-control" type="text" name="nome" id="nome">
-					</div>
-
-					<div class="form-group">
-						<label for="sobrenome">Sobrenome</label>
-						<input class="form-control" type="text" name="sobrenome" id="sobrenome">
-					</div>
-
-					<div class="form-group">
-						<div class="custom-control custom-radio">
-					  	<input class="custom-control-input" type="radio" id="male" name="sexo" value="M">
-					  	<label class="custom-control-label" for="male">Masculino</label>
-					</div>
-
-					<div class="custom-control custom-radio">
-					  	<input class="custom-control-input" type="radio" id="female" name="sexo" value="F">
-					  	<label class="custom-control-label" for="female">Feminino</label>
-					</div>
-
-					<div class="custom-control custom-radio">
-					  	<input class="custom-control-input" type="radio" id="other" name="sexo" value="O">
-					  	<label class="custom-control-label" for="other">Outro</label>
-					</div>
-					</div>
-
-					<div class="form-group">
-						<label for="cpf">CPF</label>
-						<input class="form-control" type="text" name="cpf" id="cpf">
-					</div>
-
-					<div class="form-group">
-						<label for="rg">RG</label>
-						<input class="form-control" type="text" name="rg" id="rg">
-					</div>
-
-					<div class="form-group">
-						<label for="email">Email</label>
-						<input class="form-control" type="email" name="email" id="email">
-					</div>
-
-					<div class="form-group">
-						<label for="senha">Senha</label>
-						<input class="form-control" type="password" name="senha" id="senha">
-					</div>
-
-					<div class="form-group">
-						<label for="telefone">Telefone</label>
-						<input class="form-control" type="text" name="telefone" id="telefone">
-					</div>
-
-					<div class="form-group">
-						<label for="nascimento">Nascimento</label>
-						<input class="form-control" type="text" name="nascimento" id="nascimento">
-					</div>
-
-					<div class="form-group">
-						<label for="endereco">Endereço</label>
-						<input class="form-control" type="text" name="endereco" id="endereco">
-					</div>
-
-					<div class="form-group">
-						<label for="cidade">Cidade</label>
-						<input class="form-control" type="text" name="cidade" id="cidade">
-					</div>
-
-					<div class="form-group">
-						<label for="cep">CEP</label>
-						<input class="form-control" type="text" name="cep" id="cep">
-					</div>
-
-					<div class="form-group">
-						<label for="estado">Estado</label>
-						<input class="form-control" type="text" name="estado" id="estado">
-					</div>
-
-					<button class="btn btn-primary form-control" type="submit">
-						Cadastrar
-					</button>
-				</form>
-			</div>
-			<div class="col">
-				<form method="post" action="validar_acesso.php" id="login">
-					<div class="form-group">
-						<label for="usuario">Login</label>
-						<input class="form-control" type="text" name="email" id="usuario" placeholder="Email">
-					</div>
-
-					<div class="form-group">
-						<label for="psw">Senha</label>
-						<input class="form-control" type="password" name="senha" id="psw">
-					</div>
-
-					<button class="btn btn-primary form-control" type="submit">
-						Logar
-					</button>
-				</form>
-			</div>
-		</div>
-	</div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <body class="demo-1 yellow darken-2"> 
+    <div>
+      <div class="container">
+        <div class="wrap hide-on-small-only">
+          <div class="background">
+            <canvas class="background__canvas"></canvas>
+            <canvas class="background__title background__title--big"></canvas>
+            <canvas class="background__title background__title--medium" data-breakpoint="1000"></canvas>
+            <canvas class="background__title background__title--small" data-breakpoint="600"></canvas>
+          </div>
+        </div>
+        <div class="elements-container">
+          <div class="container">
+            <br>
+            <br>
+            <div class="row">
+              <div class="col s12 center">
+                <h3 class="texto-Aquatico">Festival de sorvetes</h3>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col s12 center">
+                <img src="img/logo.png" height="200px" width="auto">
+              </div>
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="col s12 center">
+              <button class="waves-effect btn-large pink accent-3 texto-Aquatico" onclick="goToHome()">Entrar</button>
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="col s12 center">
+              <img src="img/ice-cream.png" height="100px" width="auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Scripts-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/desert.js"></script>
   </body>
 </html>
