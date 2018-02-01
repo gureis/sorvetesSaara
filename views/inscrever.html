@@ -12,8 +12,8 @@
 <div class="container margin-top-3">
     <div class="row">
         <div class="col s12 center">
-            <h4 class="texto-Aquatico">Cadastro</h4>
-            <h4 class="texto-Aquatico">Alterar dados</h4>
+            <h4 ng-show="!usuarioLogado.logado" class="texto-Aquatico">Cadastro</h4>
+            <h4 ng-show="usuarioLogado.logado" class="texto-Aquatico">Alterar dados</h4>
         </div>
     </div>
     <div class="row">
@@ -101,8 +101,8 @@
             </div>
             <div class="row">
                 <div class="col s12 center">
-                    <button ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Cadastrar</button>
-                    <button ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Alterar</button>
+                    <button ng-show="!usuarioLogado.logado" ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Cadastrar</button>
+                    <button ng-show="usuarioLogado.logado" ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Alterar</button>
                 </div>
             </div>
         </form>

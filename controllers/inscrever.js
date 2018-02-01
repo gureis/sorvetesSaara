@@ -11,6 +11,15 @@ angular.module('inscrever',[])
           }
         );
     });
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 100, // Creates a dropdown of 15 years to control year,
+        today: 'Hoje',
+        clear: 'Limpar',
+        close: 'Ok',
+        closeOnSelect: false, // Close upon selecting a date,
+        format: 'yyyy-mm-dd',
+    });
     $scope.estados = [];
     $scope.cidades = [];
     $scope.confirmarSenha = "";
@@ -30,15 +39,17 @@ angular.module('inscrever',[])
         telefone: '',
         endereco: ''
     };
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 100, // Creates a dropdown of 15 years to control year,
-        today: 'Hoje',
-        clear: 'Limpar',
-        close: 'Ok',
-        closeOnSelect: false, // Close upon selecting a date,
-        format: 'yyyy-mm-dd',
-      });
+    $scope.usuarioLogado = $helper.getUsuario();
+    if($scope.usuarioLogado == true){
+        $request.buscarUsuario()
+            .then(function(response) {
+                console.log(response);
+                $scope.usuario = response;
+            }, function(error) {
+                console.log("erro de requisicao", error);
+            }
+        );
+    }
 
     $scope.getIndexEstado = function(){
         angular.forEach($scope.estados, function(estado, key) {

@@ -80,5 +80,21 @@ angular.module('$request', [])
 			console.log(response);
 			// algo de errado
 		});
+	}
+	
+	this.buscarUsuario = function(){
+		return $http({
+			method: "post",
+			url: 'http://localhost/saarice/php/get_perfil.php',
+			data:usuario,
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+		})
+		.then(function(response) {
+			return response.data;
+			//deu certo
+		}, function(response) {
+			console.log(response);
+			// algo de errado
+		});
     }
 }])
