@@ -1,10 +1,10 @@
 <?php
-
-	session_start();
-
 	require_once('db.class.php');
 
-	$email = $_SESSION['email'];
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata);
+
+	$email= request->login;
 
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();

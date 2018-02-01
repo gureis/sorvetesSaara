@@ -1,7 +1,4 @@
 <?php
-
-	session_start();
-
 	//requer a classe de conexão
 	require_once('db.class.php');
 
@@ -76,7 +73,6 @@
 
 	//Exec query
 	if (mysqli_query($link, $sql)){
-		$_SESSION['email'] = $email;
 		$user = [
 			"status" => "ok",
 			"login" => $email,
