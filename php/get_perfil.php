@@ -1,4 +1,7 @@
 <?php
+
+	session_start();
+
 	require_once('db.class.php');
 
 	$email = $_SESSION['email'];
@@ -6,7 +9,7 @@
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
-	$sql = "SELECT nome, sobrenome, sexo, cpf, rg, email, telefone, nascimento, endereco, cidade, cep, estado FROM usuarios	WHERE email = '$email'";
+	$sql = "SELECT * FROM usuarios	WHERE email = '$email'";
 
 	$res = mysqli_query($link, $sql);
 
@@ -24,6 +27,9 @@
 			"sexo" => $user['sexo'],
 			"email" => $user['email'],
 			"nascimento" => $user['nascimento'],
+			"senha" => $user['senha'],
+			"cpf" => $user['cpf'],
+			"rg" => $user['rg']
 		];
 
 		echo json_encode($user_data);
