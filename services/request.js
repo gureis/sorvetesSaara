@@ -20,17 +20,7 @@ angular.module('$request', [])
             }
         );
 	}
-	
-	// this.cadastrar = function(usuario){
-	// 	return $http.get('http://localhost/teste/teste.php', usuario, config)
-	// 	.then(function(response) {
-	// 		console.log(response);
-			
-	// 	}, function(response) {
-	// 		console.log(response);
-			
-	// 	});
-	// }
+
 	this.cadastrar = function(usuario){
 		console.log(usuario);
 		return $http({
@@ -46,7 +36,7 @@ angular.module('$request', [])
 			// algo de errado
 		});
 	}
-	
+
 	this.alterarCadastro = function(usuario){
 		console.log(usuario);
 		return $http({
@@ -73,7 +63,6 @@ angular.module('$request', [])
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		})
 		.then(function(response) {
-			
 			return response.data;
 			//deu certo
 		}, function(response) {
@@ -81,7 +70,7 @@ angular.module('$request', [])
 			// algo de errado
 		});
 	}
-	
+
 	this.buscarUsuario = function(){
 		return $http({
 			method: "post",

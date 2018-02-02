@@ -19,6 +19,7 @@
 	if ($res){
 		$dados_usuario = mysqli_fetch_array($res);
 		if(isset($dados_usuario['email'])) {
+			$_SESSION['email'] = $dados_usuario['email'];
 			$user = [
 				"status" => "Ok",
 				"login" => $dados_usuario['email'],

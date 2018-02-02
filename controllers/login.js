@@ -6,7 +6,7 @@ angular.module('login',[])
             menuWidth: 300, // Default is 300
             edge: 'right', // Choose the horizontal origin
             closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            draggable: true, 
+            draggable: true,
           }
         );
         $('.collapsible').collapsible();
@@ -15,7 +15,6 @@ angular.module('login',[])
         $('.button-collapse').sideNav('hide');
         $location.path('/');
     };
-   
 
     $scope.usuario = {
         login:'',

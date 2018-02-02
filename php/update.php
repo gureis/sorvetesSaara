@@ -1,7 +1,5 @@
 <?php
-
 	session_start();
-
 	require_once('db.class.php');
 
 	$postdata = file_get_contents("php://input");

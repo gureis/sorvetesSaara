@@ -23,7 +23,7 @@ angular.module('inscrever',[])
     $scope.estados = [];
     $scope.cidades = [];
     $scope.confirmarSenha = "";
-    $scope.sexos = [{nome:'Masculino',sigla:'m'}, {nome:'Feminino', sigla:'F'}, {nome:'Outro', sigla:'O'}];
+    $scope.sexos = [{nome:'Masculino',sigla:'M'}, {nome:'Feminino', sigla:'F'}, {nome:'Outro', sigla:'O'}];
     $scope.usuario = {
         nome:"",
         sobrenome: "",

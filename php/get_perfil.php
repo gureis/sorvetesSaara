@@ -1,15 +1,17 @@
 <?php
+	session_start();
+
 	require_once('db.class.php');
-
-	$postdata = file_get_contents("php://input");
-	$request = json_decode($postdata);
-
-	$email= request->login;
 
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
-	$sql = "SELECT * FROM usuarios	WHERE email = '$email'";
+	//$postdata = file_get_contents("php://input");
+	//$request = json_decode($postdata);
+
+	$email = $_SESSION['email'];
+
+	$sql = "SELECT * FROM usuarios WHERE email = '$email'";
 
 	$res = mysqli_query($link, $sql);
 
@@ -19,17 +21,17 @@
 		$user_data = [
 			"nome" => $user['nome'],
 			"sobrenome" => $user['sobrenome'],
-			"telefone" => $user['telefone'],
-			"endereco" => $user['endereco'],
+			"email" => $user['email'],
+			"sexo" => $user['sexo'],
+			"senha" => $user['senha'],
+			"cpf" => $user['cpf'],
+			"rg" => $user['rg'],
 			"cidade" => $user['cidade'],
 			"cep" => $user['cep'],
 			"estado" => $user['estado'],
-			"sexo" => $user['sexo'],
-			"email" => $user['email'],
 			"nascimento" => $user['nascimento'],
-			"senha" => $user['senha'],
-			"cpf" => $user['cpf'],
-			"rg" => $user['rg']
+			"telefone" => $user['telefone'],
+			"endereco" => $user['endereco']
 		];
 
 		echo json_encode($user_data);
