@@ -51,7 +51,7 @@ angular.module('inscrever',[])
             }
         );
     }else{
-        consol.log("deu ruim");
+        console.log("deu ruim");
     }
 
     $scope.getIndexEstado = function(){
