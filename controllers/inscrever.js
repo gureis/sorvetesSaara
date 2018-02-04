@@ -40,12 +40,26 @@ angular.module('inscrever',[])
         endereco: ''
     };
     $scope.usuarioLogado = $helper.getUsuario();
-    console.log($helper.getUsuario());
     if($scope.usuarioLogado.logado){
+        console.log("Usuario logado",$scope.usuarioLogado);
         $request.buscarUsuario($scope.usuarioLogado)
             .then(function(response) {
-                console.log(response);
-                $scope.usuario = response;
+                console.log("dados que estao vindo",response);
+                $scope.usuario = {
+                    nome: response.nome,
+                    sobrenome: response.sobrenome,
+                    email: response.email,
+                    sexo: response.sexo,
+                    senha: "",
+                    cpf: parseInt(response.cpf),
+                    rg: response.rg,
+                    cidade: response.cidade,
+                    cep: parseInt(response.cep),
+                    estado: response.estado,
+                    nascimento: response.nascimento,
+                    telefone: parseInt(response.telefone),
+                    endereco: response.endereco
+                };
             }, function(error) {
                 console.log("erro de requisicao", error);
             }
@@ -73,27 +87,6 @@ angular.module('inscrever',[])
                         if($scope.usuario.sexo !== ""){
                             if($('.datepicker').val() !== ""){
                                 $scope.usuario.nascimento = $('.datepicker').val();
-                                if($scope.usuarioLogado.logado){
-                                    $request.alterarCadastro($scope.usuario)
-                                    .then(function(response) {
-                                        console.log(response);
-                                        if(response.status === "ok") {
-                                            $location.path('/');
-                                            Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
-                                            var user = {
-                                                login: response.login,
-                                                senha: response.senha,
-                                                nome: $scope.usuario.nome
-                                            };
-                                            $helper.setUsuario(user);
-                                        }else{
-                                            Materialize.toast(response.status, 4000, 'red');
-                                        }
-                                    }, function(error) {
-                                        console.log("erro de requisicao", error);
-                                    }
-                                );
-                                }else{
                                     $request.cadastrar($scope.usuario)
                                         .then(function(response) {
                                             console.log(response);
@@ -113,7 +106,6 @@ angular.module('inscrever',[])
                                             console.log("erro de requisicao", error);
                                         }
                                     );
-                                }
                             }else{
                                 Materialize.toast('Selecione sua data de nascimento', 4000, 'red');
                             }
@@ -132,6 +124,28 @@ angular.module('inscrever',[])
         }else{
             Materialize.toast('CPF inválido, coloque um cpf válido', 4000, 'red');
         }
+    };
+
+    $scope.enviarFormAlterar = function(){
+        $request.alterarCadastro($scope.usuario)
+            .then(function(response) {
+                console.log(response);
+                if(response.status === "ok") {
+                    $location.path('/');
+                    Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
+                    var user = {
+                        login: response.login,
+                        senha: response.senha,
+                        nome: $scope.usuario.nome
+                    };
+                    $helper.setUsuario(user);
+                }else{
+                    Materialize.toast(response.status, 4000, 'red');
+                }
+            }, function(error) {
+                console.log("erro de requisicao", error);
+            }
+        );
     };
 
     $request.getEstadosCidades()

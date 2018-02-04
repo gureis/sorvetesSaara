@@ -14,6 +14,7 @@
         <div class="col s12 center">
             <h4 ng-show="!usuarioLogado.logado" class="texto-Aquatico">Cadastro</h4>
             <h4 ng-show="usuarioLogado.logado" class="texto-Aquatico">Alterar dados</h4>
+            <p ng-show="usuarioLogado.logado" class="texto-Aquatico">Manteremos os dados que já foram cadastrados caso deixe um campo em branco</p>
         </div>
     </div>
     <div class="row">
@@ -102,7 +103,7 @@
             <div class="row">
                 <div class="col s12 center">
                     <button ng-show="!usuarioLogado.logado" ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Cadastrar</button>
-                    <button ng-show="usuarioLogado.logado" ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Alterar</button>
+                    <button ng-show="usuarioLogado.logado" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarFormAlterar()">Alterar</button>
                 </div>
             </div>
         </form>
