@@ -1,6 +1,7 @@
 <?php
 	require_once('db.class.php');
 
+<<<<<<< HEAD
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata);
 	
@@ -9,6 +10,15 @@
 
 	$objDb = new db(); //recebe o db
 	$link = $objDb->conecta_mysql(); // função de conexão bd
+=======
+	$objDb = new db();
+	$link = $objDb->conecta_mysql();
+
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata, true);
+
+	$email = $request["login"];
+>>>>>>> 2b4557cc769b3078965d5ed09248a28b919c8ad6
 
 	$sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
 
