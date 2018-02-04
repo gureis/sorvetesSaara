@@ -6,7 +6,7 @@
         <li><a class="text-50 scrollSuave" href="#patrocinadores">Patrocinadores</a></li>
         <li><a class="text-50 scrollSuave" href="#localizacao">Local</a></li>
         <li class="pink accent-3"><a class="text-50 " ng-click="inscrever()">Inscrever-se</a></li>
-        <li class="brown"><a class="text-50" ng-click="pageLoginMob()">Login mob</a></li>
+        <li class="brown darken-2"><a class="text-50" ng-click="pageLoginMob()">Login mob</a></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
@@ -29,8 +29,8 @@
         <li><a class="text-50 scrollSuave" href="#localizacao">Local</a></li>
         <li class="pink accent-3"><a class="text-50 " ng-show="usuarioLogado.logado" ng-click="inscrever()">Alterar dados</a></li>
         <li class="pink accent-3"><a class="text-50 " ng-show="!usuarioLogado.logado" ng-click="inscrever()">Inscrever-se</a></li>
-        <li class="brown"><a class="text-50 modal-trigger" ng-show="!usuarioLogado.logado" data-target="ModalLogin">Login</a></li>
-        <li class="brown"><a class="dropdown-button" ng-show="usuarioLogado.logado" data-activates="dropdown1">{{usuarioLogado.nome}}<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li class="brown darken-2"><a class="text-50 modal-trigger" ng-show="!usuarioLogado.logado" data-target="ModalLogin">Login</a></li>
+        <li class="brown darken-2"><a class="dropdown-button" ng-show="usuarioLogado.logado" data-activates="dropdown1">{{usuarioLogado.nome}}<i class="material-icons right">arrow_drop_down</i></a></li>
         <ul id='dropdown1' class='dropdown-content'>
             <li><a ng-click="sair()">Sair</a></li>
         </ul>
@@ -62,27 +62,26 @@
         <div class="col s12 m6 l6">
             <img src="./img/oasis.jpeg" class="z-depth-3 img-oasis" width="100%" height="auto">
         </div>
-        <div class="col s12 m6 l6 padding-4">
+        <div class="col s12 m6 l6 padding-4 margin-bottom-5">
             <h4 class="text-justify ">
                 Um festival que agitará mais de 9
                 milhões Km², criando o seu Oasis
                 à beira do Rio Nilo em pleno deserto
-                do Saara.     
-            </h4>
+                do Saara. </h4>
+            
+            <h4>Serão 3 dias com:</h4>
+
+            <ol style="list-style:circle">
+                <li><h5> Muita refrescância;</li></h5>
+                <li><h5> Os melhores sorvetes;</li></h5>
+                <li><h5> Palestras de chefes que mudaram
+                    a maneira de como se faz um verdadeiro
+                    sorvete.
+                </li></h5>
+            </ol>
+
         </div>
     </div>
-    <div class="row">
-        <div class="col s12 m6 l6">
-            <h4>- 3 dias da mais pura refrescância</h4>
-            <h4>- 3 dias com os melhores sorvetes já feito</h4>
-        </div>
-        <div class="col s12 m6 l6">
-            <h4>
-                - 3 dias com palestrantes e chefes que mudaram
-                a maneira de como se faz um verdadeiro
-                sorvete
-            </h4>
-        </div>
     </div>
 </div>
 
@@ -100,133 +99,142 @@
     <div class="parallax"><img src="./img/ice-cream-a.jpg" alt="Unsplashed background img 1"></div>
 </div>
 
-<div class="center container" id="palestrantes">
+<div class="center container" id = "palestrantes" >
     <br><br>
     <h3 class="texto-moon center-align">
         Palestrantes
     </h3>
     <br><br>
-    <div class="row">
+    
+    <div class = "row">
         <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div>
-                    <img class="circle-img-palestrante" src="./../img/palestrante_1.jpg" alt="">
-                    <br>
-                    <h3>TOMISHA OTA</h3>
-                    <p class="flow-text grey-text text-darken-1">The Biotherapy Development Research Center</p>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div class="relative">
-                    <h4 class="grey-text text-darken-1 center-text-img">EXTRATO DE MORANGO 
-                        CHAVE PARA O DERRETIMENTO DE SORVETES</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div>
-                    <img class="circle-img-palestrante" src="./../img/palestrante_2.jpeg" alt="">
-                    <br>
-                    <h3>AJA CAGE</h3>
-                    <p class="flow-text grey-text text-darken-1">Instituto Culinario da pennsylvania</p>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 l3">
-                <div class="card-palestrante z-depth-4">
-                    <div class="relative">
-                        <h4 class="grey-text text-darken-1 center-text-img">Pioneira em sobremesas de
-                                sorvete com sabor Frango frito
-                        </h4>
+            <div class="card-container">
+                <div class="card z-depth-4">
+                    <div class = "side">
+                        <img class="circle-img-palestrante z-depth-4" src="./../img/palestrante_1.jpg" alt="">
+                        <br>
+                        <h3>TOMISHA OTA</h3>
+                        <p class="flow-text grey-text text-darken-1">The Biotherapy Development Research Center</p>
+                    </div>
+                <div class="side back">
+                    <h4 class="flow-text grey-text text-darken-1 center-text-img">EXTRATO DE MORANGO 
+                            CHAVE PARA O DERRETIMENTO DE SORVETES</h4>
                     </div>
                 </div>
-            </div>    
-        </div>
+            </div>
+        </div>  
         <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div>
-                    <img class="circle-img-palestrante" src="./../img/palestrante_3.jpeg" alt="">
-                    <br>
-                    <h3>FRANCISCO SANT'ANA</h3>
-                    <p class="flow-text grey-text text-darken-1">Chef Glacier especialista em sorvetes</p>
+            <div class="card-container">
+                <div class="card z-depth-4">
+                    <div class = "side">
+                        <img class="circle-img-palestrante z-depth-4" src="./../img/palestrante_2.jpeg" alt="">
+                        <br>
+                        <h3>AJA CAGE</h3>
+                        <p class="flow-text grey-text text-darken-1">Instituto Culinário da Pennsylvania</p>
+                    </div>
+                    <div class="side back">
+                        <h4 class="grey-text flow-text text-darken-1 center-text-img">Pioneira em sobremesas de sorvete com sabor Frango Frito</h4>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div>  
         <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div class="relative">
-                    <h4 class="grey-text text-darken-1 center-text-img">Cursos e Palestras com tema: melhoria na comunicação e em vendas</h4>
+            <div class="card-container">
+                <div class="card z-depth-4">
+                    <div class = "side">
+                        <img class="circle-img-palestrante z-depth-4" src="./../img/palestrante_3.jpeg" alt="">
+                        <br>
+                        <h3>Francisco S.</h3>
+                        <p class="flow-text grey-text text-darken-1">Chef Glacier Brasileiro</p>
+                    </div>
+                    <div class="side back">
+                        <h4 class="flow-text grey-text text-darken-1 center-text-img">Tudo sobre sua Escola de Sorvete</h4>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div> 
         <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div>
-                    <img class="circle-img-palestrante" src="./../img/palestrante_4.jpeg" alt="">
-                    <br>
-                    <h3>Peter B.Letmathe</h3>
-                    <p class="flow-text grey-text text-darken-1">Presidente do Conselho de Administração
-                            da NESTLÉ S.A.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div class="relative">
-                    <h4 class="grey-text text-darken-1 center-text-img">Rumo ao sucesso, conselhos de um
-                            conselheiro
-                    </h4>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div>
-                    <img class="circle-img-palestrante" src="./../img/palestrante_5.jpeg" alt="">
-                    <br>
-                    <h3>BEN E JERRY</h3>
-                    <p class="flow-text grey-text text-darken-1">Fundadores da empresa Ben&Jerry’s</p>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div class="relative">
-                    <h4 class="grey-text text-darken-1 center-text-img">Um pouco mais sobre sucesso no
-                            ramo de sorvetes e picolés</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div>
-                    <img class="circle-img-palestrante" src="./../img/palestrantes_6.jpg" alt="">
-                    <br>
-                    <h3>CHARLIE FRANCIS</h3>
-                    <p class="flow-text grey-text text-darken-1">Chef Britânico</p>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6 l3">
-            <div class="card-palestrante z-depth-4">
-                <div class="relative">
-                        <h4 class="grey-text text-darken-1 center-text-img">O sorvete que
-                                brilha no escuro ao ser tocado pela língua do consumidor
-                        </h4>
+            <div class="card-container">
+                <div class="card z-depth-4">
+                    <div class = "side">
+                        <img class="circle-img-palestrante z-depth-4" src="./../img/palestrante_7.png" alt="">
+                        <br>
+                        <h3>Luca Lenzi</h3>
+                        <p class="flow-text grey-text text-darken-1">Fiorentino dono da Lullo Gelato em BH</p>
+                    </div>
+                    <div class="side back">
+                        <h4 class="flow-text grey-text text-darken-1 center-text-img">Com produção artesanal, conta como criar o sabor perfeito</h4>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col s12 m6 l3">
+            <div class="card-container">
+                <div class="card z-depth-4">
+                    <div class = "side">
+                        <img class="circle-img-palestrante z-depth-4" src="./../img/palestrante_4.jpg" alt="">
+                        <br>
+                        <h3>Sergio Dondoli</h3>
+                        <p class="flow-text grey-text text-darken-1">Mestre sorveteiro da Gelateria di Piazza</p>
+                    </div>
+                    <div class="side back">
+                        <h5 class="flow-text grey-text text-darken-1 center-text-img">Premiado como o melhor chocolate do mundo 5 vezes contará sobre seus cursos e sua história no ramo da sorveteria</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l3">
+            <div class="card-container">
+                <div class="card z-depth-4">
+                    <div class = "side">
+                        <img class="circle-img-palestrante z-depth-4" src="./../img/palestrante_5.jpeg" alt="">
+                        <br>
+                        <h3>BEN E JERRY</h3>
+                        <p class="flow-text grey-text text-darken-1">Fundadores da empresa Ben&Jerry’s</p>
+                    </div>
+                    <div class="side back">
+                        <h4 class="flow-text grey-text text-darken-1 center-text-img">Um pouco sobre como atingiram sucesso no ramo de sorvetes e picolés</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l3">
+            <div class="card-container">
+                <div class="card z-depth-4">
+                    <div class = "side">
+                        <img class="circle-img-palestrante z-depth-4 z-depth-4" src="./../img/palestrante_6.jpg" alt="">
+                        <br>
+                        <h3>CHARLIE FRANCIS</h3>
+                        <p class="flow-text grey-text text-darken-1">Chef Britânico</p>
+                    </div>
+                    <div class="side back">
+                        <h4 class="flow-text grey-text text-darken-1 center-text-img">O sorvete que brilha no escuro ao ser tocado pela língua do consumidor</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l3">
+            <div class="card-container">
+                <div class="card z-depth-4">
+                    <div class = "side">
+                        <img class="circle-img-palestrante z-depth-4 z-depth-4" src="./../img/palestrante_8.jpeg" alt="">
+                        <br>
+                        <h3>Peter B.Letmathe</h3>
+                        <p class="flow-text grey-text text-darken-1">Presidente do Conselho de Administração da NESTLÉ S.A.</p>
+                    </div>
+                    <div class="side back">
+                        <h4 class="flow-text grey-text text-darken-1 center-text-img">Rumo ao sucesso, conselhos de um conselheiro</h4>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
 </div>
-
+<br>
+<br>
+<br>
 <div class="parallax-container valign-wrapper hide-on-small-only">
     <!-- <div class="section no-pad-bot">
         <div class="container">
@@ -246,7 +254,7 @@
     <br><br>
     <div class= "row">
         <div class="col s12 m4 l4 center">
-            <img class="z-depth-4 circle margin-top-3" height="250x" width="250px" src="./../img/jerry1.jpeg">
+            <img class="z-depth-4 circle margin-top-3 img-org" src="./../img/organizadores.jpg">
         </div>
         <div class="col s12 m8 l8">
             <h4 class="center-align">
@@ -331,13 +339,13 @@
         <br><br>
         <div class="row">
             <div class="col s12 m6 l6 center">
-                <img src="../img/local.png" width="55%" height="auto">
+                <img class = "local" src="../img/local.png">
             </div>
-            <div class="col s12 m6 l6">
-                <h4 class="text-justify">
+            <div col s12 m6 l6">
+                <h4 class=" texto-h4 text-justify">
                     NÃO SOU UMA MIRAGEM!
                 </h4>
-                <p class="flow-text text-justify">
+                <p class="texto-p text-justify">
                     O melhor sorvete do deserto do saara estara situado ao norte da
                     Africa a beira do Rio Nilo. Contamos aqui com transportes turisticos
                     então se preoculpe somente em chegar.
@@ -375,7 +383,7 @@
             <div class="row">
                 <div class="col s12 center">
                     <button class="btn modal-close yellow darken-2 texto-Aquatico">Cancelar</button>
-                    <button class="btn brown waves-effect waves-light texto-Aquatico" ng-disabled="loginform.$invalid" ng-click="doLogin()">Login</button>
+                    <button class="btn brown darken-2 waves-effect waves-light texto-Aquatico" ng-disabled="loginform.$invalid" ng-click="doLogin()">Login</button>
                 </div>
             </div>
         </div>

@@ -12,7 +12,8 @@ angular.module('conteudo-home',[])
           }
         );
         $('.collapsible').collapsible();
-        $('.dropdown-button').dropdown();        
+        $('.dropdown-button').dropdown();
+               
     });
     var $doc = $('html, body, main');
     $('.scrollSuave').click(function() {

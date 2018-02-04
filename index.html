@@ -43,14 +43,14 @@
           </div>
     
           <div class="row">
-            <div class="col s12 center">
+            <div class="col s12 center-align ">
               <button class="waves-effect btn-large pink accent-3 texto-Aquatico" onclick="goToHome()">Entrar</button>
             </div>
           </div>
     
           <div class="row">
-            <div class="col s12 center">
-              <img src="img/ice-cream.png" height="100px" width="auto">
+            <div class="col s12 center bottom-page">
+              <img id = "image" src="img/ice-cream.png" height="100px" width="auto">
             </div>
           </div>
         </div>
@@ -61,5 +61,48 @@
     <script src="js/init.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/desert.js"></script>
+    <!--
+    <script type="text/javascript">
+      
+      var myImages = new Array("img/ice-cream1.png", "img/ice-cream2.png","img/ice-cream3.png" ,
+              "img/ice-cream4.png","img/ice-cream5.png");
+
+
+      $(function()
+      {
+        var random = myImages[Math.floor(Math.random() * myImages.length)];
+        
+        $('#image').hover(function()
+        {
+          $('#image').attr('src', random);
+        },
+        function() {
+          $('#image').attr('src','img/ice-cream.png');
+        })
+
+      })
+    </script>
+-->
+    <script type="text/javascript" language="javascript">
+
+    var myImages = new Array("img/ice-cream1.png", "img/ice-cream2.png","img/ice-cream3.png" ,
+              "img/ice-cream4.png","img/ice-cream5.png", "img/ice-cream6.png", "img/ice-cream7.png");
+
+    $(document).ready(function() {
+        var random = myImages[Math.floor(Math.random() * myImages.length)];
+        setInterval(function() {
+            SetImage();
+        }, 5000);
+    });
+    function SetImage() {
+        var random = myImages[Math.floor(Math.random() * myImages.length)];
+        $('#image').fadeOut(2000);
+
+        setTimeout(function () {
+            $('#image').attr('src', random).fadeIn(2500);
+        }, 2000);
+    }
+</script>
+
   </body>
 </html>

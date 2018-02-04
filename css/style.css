@@ -1,3 +1,5 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
 body{
   background-color: #fafafa;
 }
@@ -18,6 +20,10 @@ body{
   margin-top: 5%;
 }
 
+.margin-bottom-5{
+  margin-bottom: 5%;
+}
+
 .padding-1{
   padding: 1%!important;
 }
@@ -28,7 +34,7 @@ body{
   padding: 3%!important;
 }
 .padding-4{
-  padding: 4%!important;
+  padding: 0% 4%!important;
 }
 
 .my-form {
@@ -179,39 +185,166 @@ footer.page-footer {
   position: relative;
   height: 200px;
 }
-
-.card-palestrante{
+.card-container {
+  cursor: pointer;
+  height: 420px;
+  perspective: 600;
+  position: relative;
+  width: 100%;
+}
+.card {
+  height: 408px;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
   background-color: #fbc02d;
   border-radius: 20px;
   padding: 2%;
   font-family : BebasNeue;
-  margin: 10px auto; 
-  position: relative;
+  margin: 10px auto;
   text-align: center;
-  height: 498px;
 }
-.card-palestrante div{
+
+.card div{
   background-color: #fff9c4;
   border: 8px solid #f5f5f5;
   border-radius: 20px;
   padding: 10% 2% 10% 2%;
-  height: 100%;
-  width: 100%;
+  height: 300088px;
 }
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.local{
+  width: 350px;
+  height: auto;
+}
+
+
+.card .side {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 96%;
+  background-color: #fff9c4;
+  border: 8px solid #f5f5f5;
+  border-radius: 20px;
+  padding: 10% 2% 10% 2%;
+  height: 395px;
+}
+.card .back {
+  text-align: center;
+  transform: rotateY(180deg);
+  background-color: #fff9c4;
+  border: 8px solid #f5f5f5;
+  border-radius: 20px;
+  padding: 10% 2% 10% 2%;
+  height: 395px;
+}
+.texto-h4{
+  font-size: 2.28rem;
+}
+.texto-p {
+  font-size: 1.68rem;
+}
+
+.img-org {
+  width: 230px;
+  height: 230px;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px){
+  .circle-img-palestrante{
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+  }
+  h3{
+    font-size: 1.96rem;
+  }
+  .texto-h4 {
+      font-size: 1.8rem;
+    }
+  .texto-p {
+      font-size: 1.28rem;
+    }
+  .local {
+    width: 250px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1024px){
+    .circle-img-palestrante{
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+  }
+  h3{
+    font-size: 1.96rem;
+  }
+    .texto-h4 {
+      font-size: 1.8rem;
+    }
+    .texto-p {
+      font-size: 1.28rem;
+    }
+    .local {
+      width: 250px;
+      height: auto;
+      margin-top : 20px;
+    }
+}
+
+@media only screen and (min-width: 762px) and (max-width: 992px){
+
+  .local {
+    width: 220px;
+    height: auto;
+  }
+   .img-org {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 762px){
+  .local {
+    width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .img-org {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+
+.imageContainer {
+    width: 256px;
+    height: 256px;
+    position: absolute;
+    opacity: 0.5;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+
+.bottom-page{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
 .img-oasis{
   border-radius: 20px;
   border: 8px solid #fbc02d;
-}
-.img-org-left{
-  position: absolute;
-  left: -200px;
-  top: -120px;
-}
-
-.img-org-right{
-  position: absolute;
-  right: -200px;
-  top: -120px;
 }
 
 nav ul a {
@@ -242,4 +375,40 @@ li>span {
 }
 .picker__close, .picker__today, .picker__clear {
   color: #f50057;
+}
+div > a:hover{
+    color: #d9d9d9;
+    text-decoration:  underline;
+}
+.social-icon {
+    color: #fff;
+}
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+    padding-left : 10px;
+}
+.fa-facebook {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+}
+.fa-facebook:hover {
+    background-color: #3d5b99;
+}
+.fa-twitter {
+    padding:10px 12px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+}
+.fa-twitter:hover {
+    background-color: #00aced;
 }
