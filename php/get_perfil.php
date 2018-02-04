@@ -1,15 +1,13 @@
 <?php
-	session_start();
-
 	require_once('db.class.php');
 
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
-	//$postdata = file_get_contents("php://input");
-	//$request = json_decode($postdata);
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata, true);
 
-	$email = $_SESSION['email'];
+	$email = $request["login"];
 
 	$sql = "SELECT * FROM usuarios WHERE email = '$email'";
 
