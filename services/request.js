@@ -41,7 +41,7 @@ angular.module('$request', [])
 		console.log(usuario);
 		return $http({
 			method: "post",
-			url: 'http://localhost/saarice/php/cadastro_usuario.php',
+			url: 'http://localhost/saarice/php/update.php',
 			data:usuario,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		})
