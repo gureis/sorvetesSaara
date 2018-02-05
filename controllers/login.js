@@ -31,8 +31,11 @@ angular.module('login',[])
                 $scope.usuario.senha = response.senha;
 
                 $helper.setUsuario($scope.usuario);
+<<<<<<< HEAD
                 $location.path('/');
                 Materialize.toast('Bem vindo ' + $scope.usuario.nome, 4000, 'green');
+=======
+>>>>>>> 4b75b51b71add270730c51d14d3c901f554721f2
             }, function(error) {
                 console.log("erro de requisicao", error);
             }
