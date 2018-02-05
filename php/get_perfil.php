@@ -6,10 +6,10 @@
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
-	//$postdata = file_get_contents("php://input");
-	//$request = json_decode($postdata);
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata);
 
-	$email = $_SESSION['email'];
+	$email = $request->request;
 
 	$sql = "SELECT * FROM usuarios WHERE email = '$email'";
 
