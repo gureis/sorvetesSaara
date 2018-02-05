@@ -50,7 +50,7 @@
     
           <div class="row">
             <div class="col s12 center">
-              <img src="img/ice-cream.png" height="100px" width="auto">
+              <img id = "image" src="img/ice-cream.png" height="100px" width="auto">
             </div>
           </div>
         </div>
@@ -61,5 +61,26 @@
     <script src="js/init.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/desert.js"></script>
+    <script type="text/javascript" language="javascript">
+
+      var myImages = new Array("img/ice-cream1.png", "img/ice-cream2.png","img/ice-cream3.png" ,
+                "img/ice-cream4.png","img/ice-cream5.png", "img/ice-cream6.png", "img/ice-cream7.png");
+  
+      $(document).ready(function() {
+          var random = myImages[Math.floor(Math.random() * myImages.length)];
+          setInterval(function() {
+              SetImage();
+          }, 2000);
+      });
+      function SetImage() {
+          var random = myImages[Math.floor(Math.random() * myImages.length)];
+          $('#image').fadeOut(400);
+  
+          setTimeout(function () {
+              $('#image').attr('src', random).fadeIn(500);
+          }, 400);
+      }
+  </script>
+  
   </body>
 </html>

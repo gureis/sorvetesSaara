@@ -18,6 +18,8 @@
         </div>
     </div>
     <div class="row">
+        <h4 class = "texto-h4">Dados Pessoais</h4>
+        <br>
         <form name="cadastro" class="col s12">
             <div class="row">
                 <div class="input-field col s12 m6 l6">
@@ -28,25 +30,24 @@
                     <input id="sobrenome" ng-model="usuario.sobrenome" type="text" required>
                     <label for="sobrenome">Sobrenome</label>
                 </div>
+            <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <select ng-model="usuario.sexo">
                         <option ng-repeat="sexo in sexos" value="{{sexo.sigla}}">{{sexo.nome}}</option>
                     </select>
                     <label>Sexo</label>
                 </div>
-            </div>
-            <div class="row">
                 <div class=" col s12 m6 l6">
                     <label for="nascimento">Data de nascimento</label>
                     <!-- <input  type="text" name="created" ng-model="usuario.nascimento" /> -->
                     <input id="nascimento" ng-model="usuario.nascimento" type="text" class="datepicker">
                 </div>
+            </div>
+            <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <label for="rg">RG</label>
                     <input ng-model="usuario.rg" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" id="rg" required>
                 </div>
-            </div>
-            <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <label for="cpf">CPF (somente os numeros)</label>
                     <input ng-model="usuario.cpf" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="number" id="cpf" required>
@@ -54,6 +55,8 @@
             </div>
             <br>
             <br>
+        <h4 class = "texto-h4">Endereço</h4>
+        <br>
             <div class="row">
                 <div class="col s12 m4 l4">
                     <label for="estado">Estado</label>
@@ -78,6 +81,8 @@
             </div>
             <br>
             <br>
+        <h4 class = "texto-h4">Contato</h4>
+        <br>
             <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <input ng-model="usuario.email" id="email" type="email" class="validate" required>

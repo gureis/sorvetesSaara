@@ -26,14 +26,16 @@ angular.module('login',[])
        // $scope.usuario.senha = md5.createHash($scope.usuario.senha);
         $request.login($scope.usuario)
             .then(function(response) {
-                $('#ModalLogin').modal('close');
-                $scope.usuario.nome = response.nome;
-                $scope.usuario.senha = response.senha;
-
-                $helper.setUsuario($scope.usuario);
-                $location.path('/');
-                Materialize.toast('Bem vindo ' + $scope.usuario.nome, 4000, 'green');
+                if(response.status  === "ok"){
+                    $('#ModalLogin').modal('close');
+                    $scope.usuario.nome = response.nome;
+                    $scope.usuario.senha = response.senha;
+                    $helper.setUsuario($scope.usuario);
+                    $location.path('/');
+                    Materialize.toast('Bem vindo ' + $scope.usuario.nome, 4000, 'green');
+                }
             }, function(error) {
+                Materialize.toast('Erro de login', 'red');
                 console.log("erro de requisicao", error);
             }
         );
