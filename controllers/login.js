@@ -28,6 +28,8 @@ angular.module('login',[])
                 $('#ModalLogin').modal('close');
                 $scope.usuario.nome = response.nome;
                 $helper.setUsuario($scope.usuario);
+                $location.path('/');
+                Materialize.toast('Bem vindo' + $scope.usuario.nome, 4000, 'green');
             }, function(error) {
                 console.log("erro de requisicao", error);
             }
