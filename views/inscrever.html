@@ -14,6 +14,7 @@
         <div class="col s12 center">
             <h4 ng-show="!usuarioLogado.logado" class="texto-Aquatico">Cadastro</h4>
             <h4 ng-show="usuarioLogado.logado" class="texto-Aquatico">Alterar dados</h4>
+            <p ng-show="usuarioLogado.logado" class="texto-Aquatico">Manteremos os dados que já foram cadastrados caso deixe um campo em branco</p>
         </div>
     </div>
     <div class="row">
@@ -36,9 +37,9 @@
             </div>
             <div class="row">
                 <div class=" col s12 m6 l6">
-                    <label for="data">Data de nascimento</label>
+                    <label for="nascimento">Data de nascimento</label>
                     <!-- <input  type="text" name="created" ng-model="usuario.nascimento" /> -->
-                    <input id="data" ng-model="usuario.nascimento" type="text" class="datepicker">
+                    <input id="nascimento" ng-model="usuario.nascimento" type="text" class="datepicker">
                 </div>
                 <div class="input-field col s12 m6 l6">
                     <label for="rg">RG</label>
@@ -62,7 +63,7 @@
                 </div>
                 <div class="col s12 m4 l4">
                     <label for="cidade">Cidade</label>
-                    <select ng-disabled="usuario.estado == ''" id="cidade" ng-model="usuario.cidade" material-select watch>
+                    <select id="cidade" ng-disabled="usuario.estado == ''" ng-model="usuario.cidade" material-select watch>
                         <option ng-repeat="cidade in cidades">{{cidade}}</option>
                     </select>
                 </div>
@@ -80,7 +81,7 @@
             <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <input ng-model="usuario.email" id="email" type="email" class="validate" required>
-                    <label for="email">E-mail</label>
+                    <label for="email">E-mail/Login</label>
                 </div>
             </div>
             <div class="row">
@@ -102,7 +103,7 @@
             <div class="row">
                 <div class="col s12 center">
                     <button ng-show="!usuarioLogado.logado" ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Cadastrar</button>
-                    <button ng-show="usuarioLogado.logado" ng-disabled="cadastro.$invalid" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarForm()">Alterar</button>
+                    <button ng-show="usuarioLogado.logado" class="btn-large pink waves-effect waves-light accent-3 texto-Aquatico" ng-click="enviarFormAlterar()">Alterar</button>
                 </div>
             </div>
         </form>
