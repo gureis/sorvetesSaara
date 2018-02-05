@@ -5,7 +5,7 @@
 	$request = json_decode($postdata);
 	
 	$email = $request->login;
-	$senha = md5($request->senha);
+	$senha = $request->senha;
 
 	$objDb = new db(); //recebe o db
 	$link = $objDb->conecta_mysql(); // função de conexão bd

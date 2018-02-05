@@ -20,7 +20,8 @@
 			$user = [
 				"status" => "Ok",
 				"login" => $dados_usuario['email'],
-				"nome" => $dados_usuario['nome']
+				"nome" => $dados_usuario['nome'],
+				"senha" => $senha
 			];
 			echo json_encode($user);
 		} else {

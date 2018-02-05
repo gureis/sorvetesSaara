@@ -11,6 +11,7 @@ angular.module('login',[])
         );
         $('.collapsible').collapsible();
     });
+
     $scope.goToHome = function(){
         $('.button-collapse').sideNav('hide');
         $location.path('/');
@@ -27,12 +28,15 @@ angular.module('login',[])
             .then(function(response) {
                 $('#ModalLogin').modal('close');
                 $scope.usuario.nome = response.nome;
+                $scope.usuario.senha = response.senha;
+
                 $helper.setUsuario($scope.usuario);
                 $location.path('/');
-                Materialize.toast('Bem vindo' + $scope.usuario.nome, 4000, 'green');
+                Materialize.toast('Bem vindo ' + $scope.usuario.nome, 4000, 'green');
             }, function(error) {
                 console.log("erro de requisicao", error);
             }
         );
     };
+    
 })

@@ -16,6 +16,7 @@ angular.module('$helper', [])
 		usuario.nome = '';
 		usuario.senha = '';
 	}
+
 	this.setFrom = function(from_param){
 		from = from_param;
 	}
@@ -23,9 +24,11 @@ angular.module('$helper', [])
 	this.getFrom = function () {
 		return from;
 	}
+	
 	this.getUsuario = function(){
 		return usuario;
 	}
+
 	this.setUsuario = function(usuario_param){
 		usuario.logado = true;
 		usuario.nome = usuario_param.nome;

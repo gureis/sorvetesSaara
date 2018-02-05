@@ -11,6 +11,7 @@ angular.module('inscrever',[])
           }
         );
     });
+
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 100, // Creates a dropdown of 15 years to control year,
@@ -20,6 +21,7 @@ angular.module('inscrever',[])
         closeOnSelect: false, // Close upon selecting a date,
         format: 'yyyy-mm-dd',
     });
+
     $scope.estados = [];
     $scope.cidades = [];
     $scope.confirmarSenha = "";
@@ -39,12 +41,17 @@ angular.module('inscrever',[])
         telefone: '',
         endereco: ''
     };
+
     $scope.usuarioLogado = $helper.getUsuario();
     if($scope.usuarioLogado.logado){
         console.log("Usuario logado",$scope.usuarioLogado);
         $request.buscarUsuario($scope.usuarioLogado)
             .then(function(response) {
                 console.log("dados que estao vindo",response);
+                $("#cidade").val(response.cidade);
+                $("#estado").val(response.estado);
+                $("#nascimento").val(response.nascimento);
+                $("#sexo").val(response.sexo);
                 $scope.usuario = {
                     nome: response.nome,
                     sobrenome: response.sobrenome,
@@ -75,10 +82,12 @@ angular.module('inscrever',[])
             }
         });
     };
+
     $scope.goToHome = function(){
         $('.button-collapse').sideNav('hide');
         $location.path('/');
     };
+
     $scope.enviarForm = function(){
         if(TestaCPF($scope.usuario.cpf.toString()) == true){
             if($scope.confirmarSenha === $scope.usuario.senha){
@@ -94,6 +103,7 @@ angular.module('inscrever',[])
                                                 $location.path('/');
                                                 Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
                                                 var user = {
+                                                    logado: true,
                                                     login: response.login,
                                                     senha: response.senha,
                                                     nome: $scope.usuario.nome
