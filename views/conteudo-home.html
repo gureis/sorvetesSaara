@@ -8,12 +8,13 @@
         <li class="pink accent-3"><a class="text-50 " ng-click="inscrever()">Inscrever-se</a></li>
         <li class="brown darken-3"><a class="text-50" ng-show="!usuarioLogado.logado" ng-click="pageLoginMob()">Login</a></li>
         <li class="no-padding">
-            <ul class="collapsible collapsible-accordion" ng-show="usuarioLogado.logado">
+            <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header brown darken-3">{{usuarioLogado.nome}}<i class="material-icons">arrow_drop_down</i></a>
+                    <a class="collapsible-header">Usuário<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                     <ul>
-                        <li><a ng-click="sair()">Sair</a></li>
+                        <li><a>Alterar Dados</a></li>
+                        <li><a>Sair</a></li>
                     </ul>
                     </div>
                 </li>
@@ -28,8 +29,8 @@
         <li><a class="text-50 scrollSuave" href="#localizacao">Local</a></li>
         <li class="pink accent-3"><a class="text-50 " ng-show="usuarioLogado.logado" ng-click="inscrever()">Alterar dados</a></li>
         <li class="pink accent-3"><a class="text-50 " ng-show="!usuarioLogado.logado" ng-click="inscrever()">Inscrever-se</a></li>
-        <li class="brown darken-3"><a class="text-50 modal-trigger" ng-show="!usuarioLogado.logado" data-target="ModalLogin">Login</a></li>
-        <li class="brown darken-3"><a class="dropdown-button" ng-show="usuarioLogado.logado" data-activates="dropdown1">{{usuarioLogado.nome}}<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li class="brown darken-2"><a class="text-50 modal-trigger" ng-show="!usuarioLogado.logado" data-target="ModalLogin">Login</a></li>
+        <li class="brown darken-2"><a class="dropdown-button" ng-show="usuarioLogado.logado" data-activates="dropdown1">{{usuarioLogado.nome}}<i class="material-icons right">arrow_drop_down</i></a></li>
         <ul id='dropdown1' class='dropdown-content'>
             <li><a ng-click="sair()">Sair</a></li>
         </ul>
@@ -330,7 +331,7 @@
         <br><br>
         <div class="row">
             <div class="col s12 m6 l6 center">
-                <img src="../img/local.png" width="65%" height="auto">
+                <img class = "local" src="../img/local.png">
             </div>
             <div class="col s12 m6 l6">
                 <h4 class="text-justify">
@@ -350,13 +351,13 @@
     </div>
 <!-- </div> -->
 <div id="ModalLogin" class="modal modal-login" ng-controller="loginCtrl">
-    <div class="modal-content">
-        <div class="row center">
-            <div class="col s12 center">
-                <h4 class="texto-Aquatico">Entrar no Oasis</h4>
+    <form nome="loginform">
+        <div class="modal-content">
+            <div class="row center">
+                <div class="col s12 center">
+                    <h4 class="texto-Aquatico">Entrar no Oasis</h4>
+                </div>
             </div>
-        </div>
-        <form name="myForm">
             <div class="row">
                 <div class="input-field col s12 l12 m12">
                     <label for="email">E-Mail</label>
@@ -369,14 +370,14 @@
                     <input ng-model="usuario.senha" id="password" type="password" required>
                 </div>
             </div>
-        </form>
-    </div>
-    <div class="modal-footer center">
-        <div class="row">
-            <div class="col s12 center">
-                <button class="btn brown darken-3 modal-close texto-Aquatico">Fechar</button>
-                <button class="btn yellow darken-2 waves-effect waves-light texto-Aquatico" ng-disabled="myForm.$invalid" ng-click="doLogin()">Login</button>
+        </div>
+        <div class="modal-footer center">
+            <div class="row">
+                <div class="col s12 center">
+                    <button class="btn modal-close yellow darken-2 texto-Aquatico">Cancelar</button>
+                    <button class="btn brown darken-2 waves-effect waves-light texto-Aquatico" ng-disabled="loginform.$invalid" ng-click="doLogin()">Login</button>
+                </div>        
             </div>
         </div>
-    </div>
+    </form>
 </div>

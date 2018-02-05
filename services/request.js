@@ -71,12 +71,10 @@ angular.module('$request', [])
 		});
 	}
 
-	this.buscarUsuario = function(usuario){
-		console.log("dados que estou mandando:", usuario);
+	this.buscarUsuario = function(){
 		return $http({
 			method: "post",
 			url: 'http://localhost/saarice/php/get_perfil.php',
-			data:usuario,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		})
 		.then(function(response) {
