@@ -11,6 +11,7 @@ angular.module('inscrever',[])
           }
         );
     });
+
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 100, // Creates a dropdown of 15 years to control year,
@@ -20,6 +21,7 @@ angular.module('inscrever',[])
         closeOnSelect: false, // Close upon selecting a date,
         format: 'yyyy-mm-dd',
     });
+
     $scope.estados = [];
     $scope.cidades = [];
     $scope.confirmarSenha = "";
@@ -39,13 +41,32 @@ angular.module('inscrever',[])
         telefone: '',
         endereco: ''
     };
+
     $scope.usuarioLogado = $helper.getUsuario();
-    console.log($helper.getUsuario());
     if($scope.usuarioLogado.logado){
+        console.log("Usuario logado",$scope.usuarioLogado);
         $request.buscarUsuario($scope.usuarioLogado)
             .then(function(response) {
-                console.log(response);
-                $scope.usuario = response;
+                console.log("dados que estao vindo",response);
+                $("#cidade").val(response.cidade);
+                $("#estado").val(response.estado);
+                $("#nascimento").val(response.nascimento);
+                $("#sexo").val(response.sexo);
+                $scope.usuario = {
+                    nome: response.nome,
+                    sobrenome: response.sobrenome,
+                    email: response.email,
+                    sexo: response.sexo,
+                    senha: "",
+                    cpf: parseInt(response.cpf),
+                    rg: response.rg,
+                    cidade: response.cidade,
+                    cep: parseInt(response.cep),
+                    estado: response.estado,
+                    nascimento: response.nascimento,
+                    telefone: parseInt(response.telefone),
+                    endereco: response.endereco
+                };
             }, function(error) {
                 console.log("erro de requisicao", error);
             }
@@ -61,10 +82,12 @@ angular.module('inscrever',[])
             }
         });
     };
+
     $scope.goToHome = function(){
         $('.button-collapse').sideNav('hide');
         $location.path('/');
     };
+
     $scope.enviarForm = function(){
         if(TestaCPF($scope.usuario.cpf.toString()) == true){
             if($scope.confirmarSenha === $scope.usuario.senha){
@@ -73,27 +96,6 @@ angular.module('inscrever',[])
                         if($scope.usuario.sexo !== ""){
                             if($('.datepicker').val() !== ""){
                                 $scope.usuario.nascimento = $('.datepicker').val();
-                                if($scope.usuarioLogado.logado){
-                                    $request.alterarCadastro($scope.usuario)
-                                    .then(function(response) {
-                                        console.log(response);
-                                        if(response.status === "ok") {
-                                            $location.path('/');
-                                            Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
-                                            var user = {
-                                                login: response.login,
-                                                senha: response.senha,
-                                                nome: $scope.usuario.nome
-                                            };
-                                            $helper.setUsuario(user);
-                                        }else{
-                                            Materialize.toast(response.status, 4000, 'red');
-                                        }
-                                    }, function(error) {
-                                        console.log("erro de requisicao", error);
-                                    }
-                                );
-                                }else{
                                     $request.cadastrar($scope.usuario)
                                         .then(function(response) {
                                             console.log(response);
@@ -101,6 +103,7 @@ angular.module('inscrever',[])
                                                 $location.path('/');
                                                 Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
                                                 var user = {
+                                                    logado: true,
                                                     login: response.login,
                                                     senha: response.senha,
                                                     nome: $scope.usuario.nome
@@ -113,7 +116,6 @@ angular.module('inscrever',[])
                                             console.log("erro de requisicao", error);
                                         }
                                     );
-                                }
                             }else{
                                 Materialize.toast('Selecione sua data de nascimento', 4000, 'red');
                             }
@@ -132,6 +134,28 @@ angular.module('inscrever',[])
         }else{
             Materialize.toast('CPF inválido, coloque um cpf válido', 4000, 'red');
         }
+    };
+
+    $scope.enviarFormAlterar = function(){
+        $request.alterarCadastro($scope.usuario)
+            .then(function(response) {
+                console.log(response);
+                if(response.status === "ok") {
+                    $location.path('/');
+                    Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
+                    var user = {
+                        login: response.login,
+                        senha: response.senha,
+                        nome: $scope.usuario.nome
+                    };
+                    $helper.setUsuario(user);
+                }else{
+                    Materialize.toast(response.status, 4000, 'red');
+                }
+            }, function(error) {
+                console.log("erro de requisicao", error);
+            }
+        );
     };
 
     $request.getEstadosCidades()

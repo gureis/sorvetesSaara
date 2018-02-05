@@ -41,7 +41,7 @@ angular.module('$request', [])
 		console.log(usuario);
 		return $http({
 			method: "post",
-			url: 'http://localhost/saarice/php/cadastro_usuario.php',
+			url: 'http://localhost/saarice/php/update.php',
 			data:usuario,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		})
@@ -71,10 +71,12 @@ angular.module('$request', [])
 		});
 	}
 
-	this.buscarUsuario = function(){
+	this.buscarUsuario = function(usuario){
+		console.log("dados que estou mandando:", usuario);
 		return $http({
 			method: "post",
 			url: 'http://localhost/saarice/php/get_perfil.php',
+			data:usuario,
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		})
 		.then(function(response) {
