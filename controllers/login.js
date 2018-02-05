@@ -26,7 +26,8 @@ angular.module('login',[])
        // $scope.usuario.senha = md5.createHash($scope.usuario.senha);
         $request.login($scope.usuario)
             .then(function(response) {
-                if(response.status  === "ok"){
+                console.log(response);
+                if(response.status  === "Ok"){
                     $('#ModalLogin').modal('close');
                     $scope.usuario.nome = response.nome;
                     $scope.usuario.senha = response.senha;

@@ -95,13 +95,23 @@
                     <label for="telefone">Telefone</label>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="!usuarioLogado.logado">
                 <div class="input-field col s12 m6 l6">
                     <input id="senha" ng-model="usuario.senha" type="password" required>
                     <label for="senha">Senha</label>
                 </div>
                 <div class="input-field col s12 m6 l6">
                     <input id="confirmarSenha" ng-model="confirmarSenha" type="password" required>
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                </div>
+            </div>
+            <div class="row" ng-if="usuarioLogado.logado">
+                <div class="input-field col s12 m6 l6">
+                    <input id="senha" ng-model="usuario.senha" type="password" >
+                    <label for="senha">Senha</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="confirmarSenha" ng-model="confirmarSenha" type="password" >
                     <label for="confirmarSenha">Confirmar Senha</label>
                 </div>
             </div>
