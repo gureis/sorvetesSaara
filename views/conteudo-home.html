@@ -9,12 +9,13 @@
         <li class="brown darken-2"><a class="text-50" ng-click="pageLoginMob()">Login mob</a></li>
         <li class="brown darken-3"><a class="text-50" ng-show="!usuarioLogado.logado" ng-click="pageLoginMob()">Login</a></li>
         <li class="no-padding">
-            <ul class="collapsible collapsible-accordion" ng-show="usuarioLogado.logado">
+            <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header brown darken-3">{{usuarioLogado.nome}}<i class="material-icons">arrow_drop_down</i></a>
+                    <a class="collapsible-header">Usuário<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                     <ul>
-                        <li><a ng-click="sair()">Sair</a></li>
+                        <li><a>Alterar Dados</a></li>
+                        <li><a>Sair</a></li>
                     </ul>
                     </div>
                 </li>
@@ -362,13 +363,13 @@
     </div>
 <!-- </div> -->
 <div id="ModalLogin" class="modal modal-login" ng-controller="loginCtrl">
-    <div class="modal-content">
-        <div class="row center">
-            <div class="col s12 center">
-                <h4 class="texto-Aquatico">Entrar no Oasis</h4>
+    <form nome="loginform">
+        <div class="modal-content">
+            <div class="row center">
+                <div class="col s12 center">
+                    <h4 class="texto-Aquatico">Entrar no Oasis</h4>
+                </div>
             </div>
-        </div>
-        <form name="myForm">
             <div class="row">
                 <div class="input-field col s12 l12 m12">
                     <label for="email">E-Mail</label>
@@ -397,5 +398,5 @@
                 <button class="btn yellow darken-2 waves-effect waves-light texto-Aquatico" ng-disabled="myForm.$invalid" ng-click="doLogin()">Login</button>
             </div>
         </div>
-    </div>
+    </form>
 </div>
