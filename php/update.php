@@ -14,6 +14,10 @@
 	$email = $request->email;
 	$senha = $request->senha;
 	$sexo = $request->sexo;
+	$resposta = [
+		'senha',
+		'status'
+	];
 
 	if($senha=="")
 	{
@@ -28,15 +32,16 @@
 
 
 	if(mysqli_query($link, $sql)){
-	    $resposta = [
-	    	'senha' => $senha,
-	    	'status' => "Alterações realizadas com sucesso!",
-	    ];
-    	echo json_encode($resposta);
+		if($senha != "")
+			$resposta['senha'] = $senha;
+		$resposta['status'] = "Alterações realizadas com sucesso";
+    	
 	} else {
-    	echo "ERRO: Não foi possível executar $sql. " .mysqli_error($link);
+		$resposta['status'] = "Erro ao atualizar informações";
 	}
 
-mysqli_close($link);
+	echo json_encode($resposta);
+
+	mysqli_close($link);
 
 ?>
