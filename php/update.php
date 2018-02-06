@@ -15,8 +15,8 @@
 	$senha = $request->senha;
 	$sexo = $request->sexo;
 	$resposta = [
-		'senha',
-		'status'
+		'senha' => "",
+		'status' => ""
 	];
 
 	if($senha=="")
