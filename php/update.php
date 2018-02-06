@@ -14,14 +14,10 @@
 	$email = $request->email;
 	$senha = $request->senha;
 	$sexo = $request->sexo;
-<<<<<<< HEAD
-	$resposta;
-=======
 	$resposta = [
 		'senha',
 		'status'
 	];
->>>>>>> 5654253399a04789dbe32b63ae25a4ccc23317c1
 
 	if($senha=="")
 	{
@@ -36,30 +32,16 @@
 
 
 	if(mysqli_query($link, $sql)){
-<<<<<<< HEAD
-		if($senha != ""){
-			$resposta['senha'] = $senha);
-			$resposta['status'] = "ok";
-		}
-	} else {
-		$resposta['status'] = "Erro ao atualizar informações");
-=======
 		if($senha != "")
 			$resposta['senha'] = $senha;
 		$resposta['status'] = "Alterações realizadas com sucesso";
     	
 	} else {
 		$resposta['status'] = "Erro ao atualizar informações";
->>>>>>> 5654253399a04789dbe32b63ae25a4ccc23317c1
 	}
 	
 	echo json_encode($resposta);
 
-<<<<<<< HEAD
-=======
-	echo json_encode($resposta);
-
->>>>>>> 5654253399a04789dbe32b63ae25a4ccc23317c1
 	mysqli_close($link);
 
 ?>
