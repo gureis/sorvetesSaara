@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	require_once('db.class.php');
 
 	$postdata = file_get_contents("php://input");
@@ -13,18 +12,33 @@
 	$cep = $request->cep;
 	$estado = $request->estado;
 	$email = $request->email;
+	$senha = $request->senha;
+	$sexo = $request->sexo;
+	$resposta;
 
-	$sql = "UPDATE usuarios SET nome='$nome', sobrenome='$sobrenome', telefone='$telefone', endereco='$endereco', cidade='$cidade', cep='$cep', estado='$estado' WHERE email=$email";
+	if($senha=="")
+	{
+		$sql = "UPDATE usuarios SET nome='$nome', sobrenome='$sobrenome', telefone='$telefone', endereco='$endereco', cidade='$cidade', cep='$cep', estado='$estado', sexo='$sexo' WHERE email='$email'";
+	}else{
+		$senha = md5($senha);
+		$sql = "UPDATE usuarios SET nome='$nome', sobrenome='$sobrenome', telefone='$telefone', endereco='$endereco', cidade='$cidade', cep='$cep', estado='$estado', senha='$senha', sexo='$sexo' WHERE email='$email'";		
+	}
 
 	$objDb = new db();
 	$link = $objDb->conecta_mysql();
 
-	if(mysqli_query($link, $sql)){
-    echo "Atualização de cadastro concluída com sucesso!.";
-	} else {
-    echo "ERRO: Não foi possível executar $sql. " . mysqli_error($link);
-	}
 
-mysqli_close($link);
+	if(mysqli_query($link, $sql)){
+		if($senha != ""){
+			$resposta['senha'] = $senha);
+			$resposta['status'] = "ok";
+		}
+	} else {
+		$resposta['status'] = "Erro ao atualizar informações");
+	}
+	
+	echo json_encode($resposta);
+
+	mysqli_close($link);
 
 ?>

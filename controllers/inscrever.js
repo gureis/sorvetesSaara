@@ -129,6 +129,8 @@ angular.module('inscrever',[])
                     Materialize.toast('Selecione o seu estado', 4000, 'red');
                 }  
             }else{
+                console.log("senha", $scope.confirmarSenha);
+                console.log("confirmar", $scope.usuario.senha)
                 Materialize.toast('As senhas dos campos senha e confirmar senha são diferentes', 4000, 'red');
             }
         }else{

@@ -19,13 +19,17 @@ body{
 .margin-top-5{
   margin-top: 5%;
 }
+
 .margin-top-20{
   margin-top: 20%;
 }
 
+<<<<<<< HEAD
 .margin-bottom-5{
   margin-bottom: 5%;
 }
+=======
+>>>>>>> bb7ffd0a71d27f429c6615630276c7674b9af81c
 
 .padding-1{
   padding: 1%!important;

@@ -31,9 +31,9 @@ angular.module('$helper', [])
 
 	this.setUsuario = function(usuario_param){
 		usuario.logado = true;
+		usuario.login = usuario_param.login;
 		usuario.nome = usuario_param.nome;
 		usuario.senha = usuario_param.senha;
-		usuario.login = usuario_param.login;
 	}
 
 }])
