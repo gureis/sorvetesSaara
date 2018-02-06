@@ -95,7 +95,8 @@ angular.module('inscrever',[])
                     if($scope.usuario.cidade !== ""){
                         if($scope.usuario.sexo !== ""){
                             if($('.datepicker').val() !== ""){
-                                $scope.usuario.nascimento = $('.datepicker').val();
+                                if($scope.confirmarSenha != "" && $scope.usuario.senha != ""){
+                                    $scope.usuario.nascimento = $('.datepicker').val();
                                     $request.cadastrar($scope.usuario)
                                         .then(function(response) {
                                             console.log(response);
@@ -116,6 +117,10 @@ angular.module('inscrever',[])
                                             console.log("erro de requisicao", error);
                                         }
                                     );
+                                }
+                                else{
+                                    Materialize.toast('Campos senhas vazios', 4000, 'red');
+                                }
                             }else{
                                 Materialize.toast('Selecione sua data de nascimento', 4000, 'red');
                             }
@@ -144,7 +149,7 @@ angular.module('inscrever',[])
                 console.log(response);
                 if(response.status === "ok") {
                     $location.path('/');
-                    Materialize.toast('Cadastro realizado com sucesso!', 4000, 'green');
+                    Materialize.toast('Dados alterados com sucesso!', 4000, 'green');
                     var user = {
                         login: response.login,
                         senha: response.senha,

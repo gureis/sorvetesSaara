@@ -34,7 +34,7 @@
 	if(mysqli_query($link, $sql)){
 		if($senha != "")
 			$resposta['senha'] = $senha;
-		$resposta['status'] = "Alterações realizadas com sucesso";
+			$resposta['status'] = "ok";
     	
 	} else {
 		$resposta['status'] = "Erro ao atualizar informações";

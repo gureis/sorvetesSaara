@@ -46,10 +46,11 @@ angular.module('$request', [])
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		})
 			.then(function(response) {
-			console.log(response);
+			return(response.data);
 			//deu certo
 		}, function(response) {
 			console.log(response);
+			return(response.data);
 			// algo de errado
 		});
 	}
