@@ -34,6 +34,8 @@ angular.module('login',[])
                     $helper.setUsuario($scope.usuario);
                     $location.path('/');
                     Materialize.toast('Bem vindo ' + $scope.usuario.nome, 4000, 'green');
+                }else{
+                    Materialize.toast(response.status, 4000,'red');
                 }
             }, function(error) {
                 Materialize.toast('Erro de login', 'red');

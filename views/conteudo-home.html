@@ -10,8 +10,8 @@
         <li class="brown darken-2"><a class="text-50" ng-show="!usuarioLogado.logado" ng-click="pageLoginMob()">Login</a></li>
         <li class="brown darken-2 no-padding">
             <ul class="collapsible collapsible-accordion">
-                <li class="brown darken-2">
-                    <a class="collapsible-header" ng-show="usuarioLogado.logado">{{usuarioLogado.nome}}<i class="material-icons">arrow_drop_down</i></a>
+                <li class="brown darken-2" ng-show="usuarioLogado.logado">
+                    <a class="collapsible-header" >{{usuarioLogado.nome}}<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a ng-click="sair()">Sair</a></li>
