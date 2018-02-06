@@ -5,7 +5,8 @@
         <li><a class="text-50 scrollSuave" href="#organizadores">Organizadores</a></li>
         <li><a class="text-50 scrollSuave" href="#patrocinadores">Patrocinadores</a></li>
         <li><a class="text-50 scrollSuave" href="#localizacao">Local</a></li>
-        <li class="pink accent-3"><a class="text-50 " ng-click="inscrever()">Inscrever-se</a></li>
+        <li class="pink accent-3"><a class="text-50 " ng-show="!usuarioLogado.logado" ng-click="inscrever()">Inscrever-se</a></li>
+        <li class="pink accent-3"><a class="text-50 " ng-show="usuarioLogado.logado" ng-click="inscrever()">Alterar dados</a></li>
         <li class="brown darken-2"><a class="text-50" ng-show="!usuarioLogado.logado" ng-click="pageLoginMob()">Login</a></li>
         <li class="brown darken-2 no-padding">
             <ul class="collapsible collapsible-accordion">
