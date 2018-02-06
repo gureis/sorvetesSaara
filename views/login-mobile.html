@@ -10,12 +10,12 @@
     <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 </nav>
 <div>
-    <form nome="loginform">
-        <div class="row center">
-            <div class="col s12 center">
-                <h4 class="texto-Aquatico">Entrar no Oasis</h4>
-            </div>
+    <div class="row center">
+        <div class="col s12 center">
+            <h4 class="texto-Aquatico">Entrar no Oasis</h4>
         </div>
+    </div>
+    <form name="myForm">
         <div class="row">
             <div class="input-field col s12 l12 m12">
                 <label for="email">E-Mail</label>
@@ -32,7 +32,7 @@
     <div class="row">
         <div class="col s12 center">
             <button class="btn brown darken-2 texto-Aquatico" ng-click="goToHome()">Voltar</button>
-            <button class="btn yellow darken-2 waves-effect waves-light texto-Aquatico" ng-disabled="loginform.$invalid" ng-click="doLogin()">Login</button>
+            <button class="btn yellow darken-2 waves-effect waves-light texto-Aquatico" ng-disabled="myForm.$invalid" ng-click="doLogin()">Login</button>
         </div>
     </form>
 </div>
