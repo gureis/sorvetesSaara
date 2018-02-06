@@ -10,12 +10,11 @@
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Usuário<i class="material-icons">arrow_drop_down</i></a>
+                    <a class="collapsible-header" ng-show="usuarioLogado.logado">{{usuarioLogado.nome}}<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
-                    <ul>
-                        <li><a>Alterar Dados</a></li>
-                        <li><a>Sair</a></li>
-                    </ul>
+                        <ul>
+                            <li><a ng-click="sair()">Sair</a></li>
+                        </ul>
                     </div>
                 </li>
             </ul>
